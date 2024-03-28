@@ -1,0 +1,79 @@
+.navbar{
+    background-color: #1F6D31;
+}
+#nav-container{
+    padding-bottom: 0;
+    padding-top: 0;
+}
+#logo{
+    width: 75px;
+}
+.navbar-brand{
+    padding: 0;
+    color: #fff;
+}
+
+.navbar-brand:hover{
+    color: #fff;
+}
+
+#navbar-links a{
+    color: #fff;
+}
+.navbar-expand-lg .navbar-nav .nav-link{
+    padding: 1rem .8rem;
+}
+
+/* Copy */
+
+#copy-area {
+    background-color: #F1F1F1;
+}
+
+#copy-area .container {
+    padding: 10px 0;
+    text-align: center;
+}
+
+#copy-area .container p {
+    margin-bottom: 0;
+}
+
+#copy-area .container a {
+    font-weight: bold;
+    color: #444;    
+}
+
+#copy-area .container a:hover {
+    text-decoration: none;
+    color: #3EC1D5;
+}
+
+
+button#botao{
+    background-color: #1F6D31;
+    color: #F1F1F1;
+}
+
+a#botaoCard{
+    background-color: #1F6D31;
+    color: #F1F1F1;
+    border-color: #1F6D31;
+    border-radius: 25px;
+}
+
+a#botaoHome{
+    background-color: #1F6D31;
+    color: #F1F1F1;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
+#AncoraFooter{
+    
+}
