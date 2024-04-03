@@ -20,7 +20,7 @@
 
 -  [PHP](https://www.php.net/downloads.php)
 -  [PhpMyadmin] (incluso com xamp)
--  [Codeigniter 3] (https://codeigniter.com/)
+-  [Codeigniter 3](https://codeigniter.com/)
 -  [Xamp](https://www.apachefriends.org/pt_br/index.html)
 
 # Passo-Passo
