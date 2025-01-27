@@ -26,10 +26,12 @@ phases:
 
   post_build:
     commands:
-      - echo "Construindo artefato de implantação..."
-      - cp appspec.yml dist/  # Copiar o appspec.yml para o diretório de artefato
-      - cp -r deploy-scripts/ dist/  # Incluir scripts de deploy
-      - cp -r application/ dist/  # Incluir o código fonte
+      - echo "Criando o diretório dist..."
+      - mkdir -p dist  # Garantindo que o diretório dist existe
+      - echo "Gerando o pacote de distribuição..."
+      - cp appspec.yml dist/  # Copiar o appspec.yml para o diretório dist
+      - cp -r deploy-scripts/ dist/  # Copiar scripts de deploy
+      - cp -r application/ dist/  # Copiar o código-fonte
       - echo "Build concluído com sucesso!"
 
 artifacts:
