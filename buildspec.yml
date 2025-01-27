@@ -5,14 +5,15 @@ phases:
     runtime-versions:
       php: 8.1
     commands:
-      - echo "Atualizando pacotes do sistema..."
+      - echo "Atualizando pacotes..."
       - apt-get update -y
-      - echo "Instalando dependências do sistema necessárias para o PHP..."
-      - apt-get install -y php8.1-cli php8.1-mbstring php8.1-xml php8.1-zip unzip curl
+      - echo "Instalando dependências extras necessárias..."
+      - apt-get install -y php8.1-mbstring php8.1-xml php8.1-zip unzip curl
+      - echo "Verificando versão do PHP instalada..."
+      - php --version
       - echo "Instalando Composer..."
       - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
-      - php --version
       - composer --version
 
   pre_build:
@@ -34,8 +35,7 @@ artifacts:
     - '**/*'
     - '!vendor/**'
     - '!tests/**'
-  discard-paths: no
 
 cache:
   paths:
-    - vendor/** # Cache das dependências do Composer
+    - vendor/**
