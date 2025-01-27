@@ -29,7 +29,8 @@ phases:
       - echo "Criando o diretório dist..."
       - mkdir -p dist  # Criar o diretório dist, caso não exista
       - echo "Gerando o pacote de distribuição..."
-      - tar -cvzf dist/projeto-loja-online.tar.gz -C /var/www codeigniter-app
+      # Ajuste aqui para o diretório correto onde o código foi copiado no ambiente de build
+      - tar -czf dist/projeto-loja-online.tar.gz -C application .
       - echo "Build concluído com sucesso!"
 
 artifacts:
