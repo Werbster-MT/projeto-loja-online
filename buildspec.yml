@@ -26,18 +26,16 @@ phases:
 
   post_build:
     commands:
-      - echo "Criando o diretório dist..."
-      - mkdir -p dist  # Criar o diretório dist, caso não exista
-      - echo "Gerando o pacote de distribuição..."
-      - tar -czf dist/projeto-loja-online.tar.gz -C application . appspec.yml # Incluindo o appspec.yml
+      - echo "Construindo artefato de implantação..."
+      - cp appspec.yml dist/  # Copiar o appspec.yml para o diretório de artefato
+      - cp -r deploy-scripts/ dist/  # Incluir scripts de deploy
+      - cp -r application/ dist/  # Incluir o código fonte
       - echo "Build concluído com sucesso!"
 
 artifacts:
   files:
-    - '**/*'
-    - appspec.yml  # Certificando-se de que o arquivo appspec.yml está sendo incluído
-    - 'deploy-scripts/**/*'
-    - dist/projeto-loja-online.tar.gz
+    - 'dist/**/*'  # Incluir todo o conteúdo da pasta dist
+    - appspec.yml  # Incluir o appspec.yml separadamente, se necessário
 
 cache:
   paths:

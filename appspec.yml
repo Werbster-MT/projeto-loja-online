@@ -1,8 +1,9 @@
 version: 0.0
 os: linux
 files:
-  - source: dist/projeto-loja-online.tar.gz  # Caminho do artefato gerado
-    destination: /var/www/codeigniter-app  # Onde o artefato será extraído na EC2
+  - source: dist/  # Fonte do artefato gerado
+    destination: /var/www/codeigniter-app  # Destino onde o artefato será extraído
+
 permissions:
   - object: /var/www/codeigniter-app
     pattern: '**'
@@ -12,7 +13,8 @@ permissions:
     type:
       - file
       - directory
+
 hooks:
   ApplicationStart:
     - location: deploy-scripts/application-start-hook.sh
-    timeout: 300
+      timeout: 300
