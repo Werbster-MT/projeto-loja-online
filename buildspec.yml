@@ -29,16 +29,15 @@ phases:
       - echo "Criando o diretório dist..."
       - mkdir -p dist  # Criar o diretório dist, caso não exista
       - echo "Gerando o pacote de distribuição..."
-      # Ajuste aqui para o diretório correto onde o código foi copiado no ambiente de build
-      - tar -czf dist/projeto-loja-online.tar.gz -C application .
+      - tar -czf dist/projeto-loja-online.tar.gz -C application .  # Incluindo o appspec.yml
       - echo "Build concluído com sucesso!"
 
 artifacts:
   files:
     - '**/*'
-    - appspec.yml
+    - appspec.yml  # Certificando-se de que o arquivo appspec.yml está sendo incluído
     - 'deploy-scripts/**/*'
-    - dist/projeto-loja-online.tar.gz  # Incluindo o arquivo gerado no dist
+    - dist/projeto-loja-online.tar.gz
 
 cache:
   paths:
