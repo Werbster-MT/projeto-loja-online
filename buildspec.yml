@@ -3,12 +3,12 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      php: 8.1 # Use a versão que o seu projeto requer, altere se necessário
+      php: 8.1 # Use a versão que o seu projeto requer
     commands:
       - echo "Atualizando o gerenciador de pacotes..."
-      - apt-get update
+      - apt-get update -y
       - echo "Instalando PHP e extensões necessárias..."
-      - apt-get install -y php php-cli php-mbstring php-xml php-zip unzip curl # Adicione outras extensões que você precisa
+      - apt-get install -y php php-cli php-mbstring php-xml php-zip unzip curl
       - echo "Verificando versão do PHP instalada..."
       - php --version
       - echo "Instalando o Composer..."
@@ -20,7 +20,8 @@ phases:
       - composer install
   build:
     commands:
-      - echo "Executando testes com cobertura de código..."
+      - echo "Executando testes..."
+      - ./vendor/bin/phpunit --coverage-text
   post_build:
     commands:
       - echo "Build concluído com sucesso!"
@@ -29,7 +30,7 @@ artifacts:
     - '**/*'
     - '!vendor/**' # Opcional: exclui a pasta de dependências do Composer nos artefatos gerados
     - '!tests/**'  # Opcional: exclui os arquivos de teste
-    name: build-output.zip # Opcional: nome do arquivo compactado gerado
+  name: build-output.zip # Opcional: nome do arquivo compactado gerado
 cache:
   paths:
     - vendor/** # Armazena o cache da pasta vendor para acelerar builds futuros
