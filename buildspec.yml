@@ -5,9 +5,9 @@ phases:
     runtime-versions:
       php: 8.3
     commands:
-      - echo "Atualizando pacotes e instalando dependências extras..."
-      - yum update -y
-      - yum install -y php-mbstring php-xml php-zip unzip curl
+      - echo "Atualizando pacotes e instalando dependências extras necessárias..."
+      - apt-get update -y
+      - apt-get install -y php-mbstring php-xml php-zip unzip curl
       - echo "Instalando Composer..."
       - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
@@ -21,7 +21,7 @@ phases:
 
   build:
     commands:
-      - echo "Executando testes com cobertura..."
+      - echo "Executando testes com cobertura de código..."
       - composer test:coverage
 
   post_build:
