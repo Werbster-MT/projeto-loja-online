@@ -1,8 +1,9 @@
 version: 0.0
-os: ubuntu
+os: linux
 files:
-  - source: /
-    destination : /var/www/codeigniter-app
+  - source: dist/projeto-loja-online.tar.gz  # Caminho do arquivo no artifact
+    destination: /var/www/codeigniter-app  # Onde o arquivo será copiado
+
 permissions:
   - object: /var/www/codeigniter-app
     pattern: '**'
@@ -12,7 +13,8 @@ permissions:
     type:
       - file
       - directory
+
 hooks:
   ApplicationStart:
     - location: deploy-scripts/application-start-hook.sh
-    timeout: 300
+      timeout: 300
