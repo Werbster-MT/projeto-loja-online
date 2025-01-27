@@ -3,12 +3,11 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      php: 8.0 # Altere para uma versão suportada
+      php: 8.3
     commands:
-      - echo "Atualizando pacotes do sistema..."
-      - apt-get update -y
-      - echo "Instalando dependências extras se necessário..."
-      - apt-get install -y php-mbstring php-xml php-zip unzip curl
+      - echo "Atualizando pacotes e instalando dependências extras..."
+      - yum update -y
+      - yum install -y php-mbstring php-xml php-zip unzip curl
       - echo "Instalando Composer..."
       - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
