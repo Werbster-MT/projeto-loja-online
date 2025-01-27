@@ -27,7 +27,7 @@ phases:
   post_build:
     commands:
       - echo "Gerando o pacote de distribuição..."
-      - tar -czf dist/projeto-loja-online.tar.gz -C /var/www/codeigniter-app .
+      - tar -cvzf dist/projeto-loja-online.tar.gz -C /var/www codeigniter-app
       - echo "Build concluído com sucesso!"
 
 artifacts:
