@@ -5,15 +5,13 @@ phases:
     runtime-versions:
       php: 8.1
     commands:
-      - echo "Atualizando pacotes..."
+      - echo "Atualizando pacotes e instalando dependências extras necessárias..."
       - apt-get update -y
-      - echo "Instalando dependências extras necessárias..."
       - apt-get install -y php8.1-mbstring php8.1-xml php8.1-zip unzip curl
-      - echo "Verificando versão do PHP instalada..."
-      - php --version
       - echo "Instalando Composer..."
       - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
+      - php --version
       - composer --version
 
   pre_build:
@@ -23,7 +21,7 @@ phases:
 
   build:
     commands:
-      - echo "Executando testes com cobertura de código..."
+      - echo "Executando testes..."
       - composer test:coverage
 
   post_build:
