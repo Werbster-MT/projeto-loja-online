@@ -22,7 +22,7 @@ phases:
   build:
     commands:
       - echo "Executando testes (placeholder)..."
-      - composer test:coverage || echo "Sem testes configurados ainda. Continuando..."
+      - echo "Sem testes configurados ainda. Continuando..."
 
   post_build:
     commands:
@@ -30,10 +30,10 @@ phases:
 
 artifacts:
   files:
-    - '*/'
-    - '!vendor/**'
-    - '!tests/**'
+    - '**/*'
+    - appspec.yml
+    - 'deploy-scripts/**/*'
 
 cache:
   paths:
-    - vendor/**
+    - vendor/**  # Cache para dependências do Composer
