@@ -46,14 +46,14 @@ class usuarioController extends CI_Controller{
     public function deletarUsuario($id, $id_usuario){
         $this->load->model("usuarios_model");
         $this->usuarios_model->deletar($id);
-        redirect(base_url().'/usuarioController/?idUsuario='.$id_usuario);
+        redirect(base_url().'/UsuarioController/?idUsuario='.$id_usuario);
     }
 
     public function atualizar($id_usuario){
         $this->load->model("usuarios_model");
         $usuarioAtt = $_POST;
         $this->usuarios_model->atualizar($usuarioAtt);
-        redirect(base_url().'/usuarioController/?idUsuario='.$id_usuario);
+        redirect(base_url().'/UsuarioController/?idUsuario='.$id_usuario);
 
     }
 
@@ -67,13 +67,13 @@ class usuarioController extends CI_Controller{
             redirect(base_url());
         }else{
             $this->session->set_flashdata('category_error', 'Error message.');
-            redirect(base_url().'/usuarioController/login');
+            redirect(base_url().'/UsuarioController/login');
         }
     }
 
     public function sair(){
         $this->session->unset_userdata("usuario_logado");
-        redirect(base_url().'/usuarioController/login');
+        redirect(base_url().'/UsuarioController/login');
 
     }
 
