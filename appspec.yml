@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: dist  # Origem dos artefatos gerados
+  - source: dist/  # Origem dos artefatos gerados
     destination: /var/www/codeigniter-app  # Destino na instância EC2
 permissions:
   - object: /var/www/codeigniter-app
