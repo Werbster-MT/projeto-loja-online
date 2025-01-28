@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: dist/  # Origem dos artefatos gerados
-    destination: /var/www/codeigniter-app  # Destino na instância EC2
+  - source: .  # Copia todos os arquivos do artefato
+    destination: /var/www/codeigniter-app  # Destino no servidor
 permissions:
   - object: /var/www/codeigniter-app
     pattern: '**'
