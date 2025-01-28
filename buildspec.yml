@@ -17,10 +17,6 @@ phases:
   build:
     commands:
       - echo "Preparando arquivos para o deploy..."
-      - mkdir -p dist
-      - cp -r application assets system vendor index.php .htaccess dist/
-      - cp -r deploy-scripts/ dist/
-      - cp appspec.yml dist/
   post_build:
     commands:
       - echo "Build finalizado com sucesso."
