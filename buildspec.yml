@@ -16,14 +16,19 @@ phases:
       - composer install
   build:
     commands:
-      - echo "Executando testes unitários..."
-    finally:
-      - echo "Build finalizado com sucesso!"
+      - echo "Preparando arquivos para o deploy..."
+      - mkdir -p dist
+      - cp -r application/ dist/
+      - cp -r deploy-scripts/ dist/
+      - cp appspec.yml dist/
+      - cp .htaccess dist/
+      - cp index.php dist/
+  post_build:
+    commands:
+      - echo "Build finalizado com sucesso."
 artifacts:
   files:
-    - '**/*'
-    - appspec.yml
-    - 'deploy-scripts/**/*'
+    - 'dist/**/*'
 cache:
   paths:
-    - vendor/**  # Cache de dependências do Composer
+    - vendor/**
