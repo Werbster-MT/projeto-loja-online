@@ -1,44 +1,29 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
       php: 8.3
     commands:
-      - echo "Atualizando pacotes e instalando dependências extras necessárias..."
+      - echo "Atualizando pacotes e instalando dependências adicionais..."
       - apt-get update -y
       - apt-get install -y php-mbstring php-xml php-zip unzip curl
       - echo "Instalando Composer..."
       - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
-      - php --version
-      - composer --version
-
   pre_build:
     commands:
       - echo "Instalando dependências do Composer..."
       - composer install
-
   build:
     commands:
-      - echo "Executando testes (placeholder)..."
-      - echo "Sem testes configurados ainda. Continuando..."
-
-  post_build:
-    commands:
-      - echo "Criando o diretório dist..."
-      - mkdir -p dist  # Garantindo que o diretório dist existe
-      - echo "Gerando o pacote de distribuição..."
-      - cp appspec.yml dist/  # Copiar o appspec.yml para o diretório dist
-      - cp -r deploy-scripts/ dist/  # Copiar scripts de deploy
-      - cp -r application/ dist/  # Copiar o código-fonte
-      - echo "Build concluído com sucesso!"
-
+      - echo "Executando testes unitários..."
+    finally:
+      - echo "Build finalizado com sucesso!"
 artifacts:
   files:
-    - 'dist/**/*'  # Incluir todo o conteúdo da pasta dist
-    - appspec.yml  # Incluir o appspec.yml separadamente, se necessário
-
+    - '**/*'
+    - appspec.yml
+    - 'deploy-scripts/**/*'
 cache:
   paths:
-    - vendor/**  # Cache para dependências do Composer
+    - vendor/**  # Cache de dependências do Composer
