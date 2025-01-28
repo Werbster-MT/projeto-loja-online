@@ -8,7 +8,7 @@ class HomeController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("produtos_model"); // Carregar o model corretamente
+        $this->load->model("produtos_model");
     }
 
     public function index()
