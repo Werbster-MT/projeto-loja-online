@@ -1,11 +1,10 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
       php: 8.3
     commands:
-      - echo "Atualizando pacotes e instalando dependências extras necessárias..."
+      - echo "Atualizando pacotes e instalando dependências adicionais..."
       - apt-get update -y
       - apt-get install -y php-mbstring php-xml php-zip unzip curl
       - echo "Instalando Composer..."
@@ -21,19 +20,14 @@ phases:
 
   build:
     commands:
-      - echo "Executando testes (placeholder)..."
-      - composer test:coverage || echo "Sem testes configurados ainda. Continuando..."
-
+      - echo "Preparando arquivos para o deploy..."
   post_build:
     commands:
-      - echo "Build concluído com sucesso!"
-
+      - echo "Build finalizado com sucesso."
 artifacts:
   files:
     - '**/*'
-    - '!vendor/**'
-    - '!tests/**'
-
 cache:
   paths:
     - vendor/**
+

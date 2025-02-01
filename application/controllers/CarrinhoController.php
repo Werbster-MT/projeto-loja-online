@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class carrinhoController extends CI_Controller{
+class CarrinhoController extends CI_Controller{
     public function index()
 	{   
         $this->load->model("usuarios_model");
@@ -25,13 +25,13 @@ class carrinhoController extends CI_Controller{
     public function deletarProdutoCarrinho($idProduto, $idUser){
         $this->load->model("carrinho_model");
         $this->carrinho_model->deletarProdutoCarrinho($idProduto, $idUser);
-        redirect(base_url().'/carrinhoController');
+        redirect(base_url().'/CarrinhoController');
     }
     
     public function finalizar($idsProdutos, $idUsuario, $valor){
         $this->load->model("carrinho_model");
         $this->carrinho_model->finalizar($idsProdutos, $idUsuario, $valor);
-        redirect(base_url().'/carrinhoController');  
+        redirect(base_url().'/CarrinhoController');  
     }
 } 
 

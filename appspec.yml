@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+  - source: .  # Copia todos os arquivos do artefato
+    destination: /var/www/codeigniter-app  # Destino no servidor
+permissions:
+  - object: /var/www/codeigniter-app
+    pattern: '**'
+    mode: '0755'
+    owner: root
+    group: root
+    type:
+      - file
+      - directory
+hooks:
+  ApplicationStart:
+    - location: deploy-scripts/application-start-hook.sh
+      timeout: 300
+      runas: root

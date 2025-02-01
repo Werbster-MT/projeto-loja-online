@@ -17,7 +17,7 @@ class pedidosController extends CI_Controller{
     public function deletar($idPedido, $id_usuario){
         $this->load->model("pedidos_model");
         $this->pedidos_model->deletar($idPedido);
-        redirect(base_url().'/pedidosController/?idUsuario='.$id_usuario);
+        redirect(base_url().'/PedidosController/?idUsuario='.$id_usuario);
 
     }
 
