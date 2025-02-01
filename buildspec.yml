@@ -10,10 +10,14 @@ phases:
       - echo "Instalando Composer..."
       - curl -sS https://getcomposer.org/installer | php
       - mv composer.phar /usr/local/bin/composer
+      - php --version
+      - composer --version
+
   pre_build:
     commands:
       - echo "Instalando dependências do Composer..."
       - composer install
+
   build:
     commands:
       - echo "Preparando arquivos para o deploy..."
