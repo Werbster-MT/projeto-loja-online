@@ -10,7 +10,7 @@
 <main>
 
     <div class="container-fluid">
-         <img src="<?= base_url()?>assets/img" class='d-block w-100' alt='Imagem Pessoas com roupas'>
+         <img src="<?= base_url()?>assets/img/pessoas.png" class='d-block w-100' alt='Imagem Pessoas com roupas'>
     </div>
         <div class="container">
             <div class="row">
